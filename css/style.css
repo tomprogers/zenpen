@@ -292,6 +292,34 @@ a:hover {
 	position:absolute;
 }
 
+
+
+/*********************************************
+ * PENS LIST
+ *********************************************/
+
+.pens.modal {
+	margin-left: -215px;
+	margin-top: -100px;
+	left: 50%;
+	top: 50%;
+	bottom: auto;
+	height: auto;
+}
+
+.pens.modal .pen-list {
+	list-style: disc inside;
+	padding: 0 1em 0 0.5em;
+}
+
+.pens.modal .pen-list li {
+	margin: 0.2em 0;
+}
+
+.pens.modal .pen-list a {
+	cursor: pointer;
+}
+
 /*********************************************
  * WORD COUNT
  *********************************************/
