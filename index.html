@@ -19,6 +19,7 @@
 		<script src="js/libs/screenfull.min.js"></script>
 		
 		<!-- JS -->
+		<script src="js/penstore.js"></script>
 		<script src="js/utils.js"></script>
 		<script src="js/editor.js"></script>
 		<script src="js/ui.js"></script>
@@ -57,6 +58,7 @@
 			<div class="pens modal">
 				<h1>Select a pen</h1>
 				<p>Choose an existing pen to view or edit, or create a new blank pen.</p>
+				<button>Start a new pen</button>
 				<ol class="pen-list"></ol>
 			</div>
 		</div>
@@ -148,6 +150,7 @@
 		<!-- JS -->
 		<script type="text/javascript">
 			// Initiate ZenPen
+			ZenPen.penStore.init();
 			ZenPen.editor.init();
 			ZenPen.ui.init();
 		</script>

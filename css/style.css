@@ -307,6 +307,31 @@ a:hover {
 	height: auto;
 }
 
+.pens.modal button {
+	display: block;
+	margin: 5px auto;
+	padding: 5px;
+	border: 2px solid white;
+	border-radius: 3px;
+	
+	font-size: 15px;
+	background: inherit;
+	color: inherit;
+	
+	cursor: pointer;
+	
+	-webkit-transition: color 250ms, background 250ms;
+	-moz-transition: color 250ms, background 250ms;
+	-ms-transition: color 250ms, background 250ms;
+	-o-transition: color 250ms, background 250ms;
+	transition: color 250ms, background 250ms;
+}
+
+.pens.modal button:hover {
+	background: rgba(255,255,255,0.8);
+	color: black;
+}
+
 .pens.modal .pen-list {
 	list-style: disc inside;
 	padding: 0 1em 0 0.5em;
