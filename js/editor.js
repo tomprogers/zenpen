@@ -219,20 +219,13 @@ ZenPen.editor = (function() {
 	}
 
 	function saveState( event ) {
-		
-		localStorage[ 'header' ] = headerField.innerHTML;
-		localStorage[ 'content' ] = contentField.innerHTML;
+		ZenPen.penStore.saveProp('header', headerField.innerHTML);
+		ZenPen.penStore.saveProp('content', contentField.innerHTML);
 	}
 
 	function loadState() {
-
-		if ( localStorage[ 'header' ] ) {
-			headerField.innerHTML = localStorage[ 'header' ];
-		}
-
-		if ( localStorage[ 'content' ] ) {
-			contentField.innerHTML = localStorage[ 'content' ];
-		}
+		headerField.innerHTML = ZenPen.penStore.loadProp('header');
+		contentField.innerHTML = ZenPen.penStore.loadProp('content');
 	}
 
 	function onBoldClick() {
