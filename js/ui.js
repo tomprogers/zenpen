@@ -15,7 +15,7 @@ ZenPen.ui = (function() {
 	var supportSave, saveFormat, textToWrite;
 	
 	// pen-choosing support
-	var pensElement, pensModal, penList;
+	var pensElement, pensModal, createPenButton, penList;
 	
 	var expandScreenIcon = '&#xe000;';
 	var shrinkScreenIcon = '&#xe004;';
@@ -131,6 +131,8 @@ ZenPen.ui = (function() {
 		aboutButton.onclick = onAboutButtonClick;
 		
 		pensModal = overlay.querySelector( '.pens.modal' );
+		createPenButton = pensModal.querySelector( '.newpen' );
+		createPenButton.onclick = onNewPenClick;
 		penList = pensModal.querySelector( '.pen-list' );
 		penList.onclick = onSavedPenClick;
 
@@ -179,6 +181,17 @@ ZenPen.ui = (function() {
 		saveModal.style.display = "block";
 	}
 	
+	function onNewPenClick( event ) {
+		// save existing pen info
+		ZenPen.penStore.saveProp('header', header.innerHTML);
+		ZenPen.penStore.saveProp('content', article.innerHTML);
+		ZenPen.penStore.saveProp('targetWordCount', wordCountValue);
+		
+		// create new pen
+		ZenPen.penStore.createNewPen();
+		removeOverlay();
+	}
+	
 	function onPensClick( event ) {
 		var list = ZenPen.penStore.getPenList();
 		
@@ -208,6 +221,8 @@ ZenPen.ui = (function() {
 		
 		var penIndex = parseInt( el.getAttribute('data-penindex') );
 		ZenPen.penStore.setActivePen(penIndex);
+		
+		removeOverlay();
 	}
 	
 	
@@ -417,7 +432,8 @@ ZenPen.ui = (function() {
 	}
 
 	return {
-		init: init
+		init: init,
+		loadState: loadState
 	};
 
 })();
