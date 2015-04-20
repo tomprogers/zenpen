@@ -48,6 +48,9 @@ ZenPen.penStore = (function() {
 		activePen = penIndex;
 		pensDB.activePen = activePen;
 		saveState();
+		
+		ZenPen.editor.loadState();
+		ZenPen.ui.loadState();
 	}
 	
 	
@@ -85,7 +88,8 @@ ZenPen.penStore = (function() {
 			'date_created': new Date().getTime()
 		});
 		
-		activePen = pensDB.pens.length - 1;
+		var newPenIndex = pensDB.pens.length - 1;
+		setActivePen(newPenIndex);
 	}
 	
 	
