@@ -346,7 +346,8 @@ ZenPen.editor = (function() {
 	return {
 		init: init,
 		saveState: saveState,
-		getWordCount: getWordCount
+		getWordCount: getWordCount,
+		loadState: loadState
 	}
 
 })();
